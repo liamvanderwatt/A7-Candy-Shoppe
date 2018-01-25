@@ -29,6 +29,7 @@ public class Cookie extends DessertItem {
             output +=" ";
             
             }
+        output+=this.getCost();
         output+= DessertShoppe.cents2dollarsAndCents(cok)+"";
         return output;
        
@@ -36,7 +37,8 @@ public class Cookie extends DessertItem {
 
     @Override
     public int getCost() {
-       int cost = (this.number/12)  * pricePer12;
+        double temp =number/12 * pricePer12;
+       int cost = (int)Math.round(temp);
        return cost;
     }
 }

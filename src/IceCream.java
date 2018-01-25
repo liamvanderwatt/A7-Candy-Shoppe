@@ -6,20 +6,32 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author Liam van der watt
  */
-public class IceCream {
-
-    public IceCream(String name, int cost)
-    {
-        
+public class IceCream extends DessertItem {
+    private int cost;
+    private String name;
+    public IceCream(String name, int cost) {
+        super (name);
+        this.name = name;
+        this.cost= cost;
     }
-
-  
-    public String toString()
-    {
-     
+@Override
+    public String toString() { 
+    String output =name;
+    int iceC= cost;
+    String sCost =DessertShoppe.cents2dollarsAndCents(iceC);
+        for(int i=0; i < DessertShoppe.RECEIPT_WIDTH -name.length()- sCost.length(); i++) {
+            output += " ";
+            }
+        output+= DessertShoppe.cents2dollarsAndCents(cost);
+      
        
+        return output;
     }
-    
+
+    @Override
+    public int getCost() {
+        return cost;
+    }
 }
